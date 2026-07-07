@@ -1,0 +1,87 @@
+{
+  "nextIds": {
+    "categories": 9,
+    "transactions": 4,
+    "budgets": 2
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Salary",
+      "type": "income"
+    },
+    {
+      "id": 2,
+      "name": "Freelance",
+      "type": "income"
+    },
+    {
+      "id": 3,
+      "name": "Food",
+      "type": "expense"
+    },
+    {
+      "id": 4,
+      "name": "Rent",
+      "type": "expense"
+    },
+    {
+      "id": 5,
+      "name": "Travel",
+      "type": "expense"
+    },
+    {
+      "id": 6,
+      "name": "Shopping",
+      "type": "expense"
+    },
+    {
+      "id": 7,
+      "name": "Bills",
+      "type": "expense"
+    },
+    {
+      "id": 8,
+      "name": "Education",
+      "type": "expense"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "categoryId": 7,
+      "amount": 1200,
+      "type": "expense",
+      "description": "Lunch",
+      "date": "2026-07-07",
+      "createdAt": "2026-07-07T11:21:21.269Z"
+    },
+    {
+      "id": 2,
+      "categoryId": 1,
+      "amount": 123000,
+      "type": "income",
+      "description": "",
+      "date": "2026-07-07",
+      "createdAt": "2026-07-07T11:21:36.774Z"
+    },
+    {
+      "id": 3,
+      "categoryId": 1,
+      "amount": 12000000,
+      "type": "income",
+      "description": "",
+      "date": "2026-07-07",
+      "createdAt": "2026-07-07T11:22:16.887Z"
+    }
+  ],
+  "budgets": [
+    {
+      "id": 1,
+      "categoryId": 7,
+      "amount": 12200,
+      "month": 7,
+      "year": 2026
+    }
+  ]
+}

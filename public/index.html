@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p>Expense Tracker CRUD</p>
+      <h1>Track income, expenses, and budgets</h1>
+    </div>
+    <a id="exportCsv" href="/api/export">Export CSV</a>
+  </header>
+
+  <main>
+    <section class="stats">
+      <article>
+        <span>Income</span>
+        <strong id="income">Rs 0</strong>
+      </article>
+      <article>
+        <span>Expense</span>
+        <strong id="expense">Rs 0</strong>
+      </article>
+      <article>
+        <span>Balance</span>
+        <strong id="balance">Rs 0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Transaction</h2>
+        <button id="newTransaction" type="button">New</button>
+      </div>
+      <form id="transactionForm" class="grid">
+        <input id="transactionId" type="hidden">
+        <label>Type
+          <select id="transactionType">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </label>
+        <label>Category
+          <select id="transactionCategory" required>
+            <option value="3">Food</option>
+            <option value="4">Rent</option>
+            <option value="5">Travel</option>
+            <option value="6">Shopping</option>
+            <option value="7">Bills</option>
+            <option value="8">Education</option>
+          </select>
+        </label>
+        <label>Amount
+          <input id="transactionAmount" type="number" min="1" step="0.01" required>
+        </label>
+        <label>Date
+          <input id="transactionDate" type="date" required>
+        </label>
+        <label class="wide">Description
+          <input id="transactionDescription" type="text" placeholder="Lunch, rent, salary...">
+        </label>
+        <button type="submit">Save</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Filters</h2>
+        <button id="clearFilters" type="button">Clear</button>
+      </div>
+      <div class="grid small">
+        <label>Type
+          <select id="filterType">
+            <option value="">All</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </label>
+        <label>From
+          <input id="filterFrom" type="date">
+        </label>
+        <label>To
+          <input id="filterTo" type="date">
+        </label>
+        <button id="applyFilters" type="button">Apply</button>
+      </div>
+    </section>
+
+    <section class="columns">
+      <article class="panel">
+        <h2>Expense by Category</h2>
+        <div id="categoryChart" class="bars"></div>
+      </article>
+      <article class="panel">
+        <h2>Monthly Trend</h2>
+        <div id="monthlyChart" class="bars"></div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Transactions</h2>
+        <span id="transactionCount">0 records</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="transactions"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="columns">
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Categories</h2>
+          <button id="newCategory" type="button">New</button>
+        </div>
+        <form id="categoryForm" class="inline">
+          <input id="categoryId" type="hidden">
+          <input id="categoryName" type="text" placeholder="Category name" required>
+          <select id="categoryType">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+          <button type="submit">Save</button>
+        </form>
+        <ul id="categories" class="list"></ul>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Budgets</h2>
+          <button id="newBudget" type="button">New</button>
+        </div>
+        <form id="budgetForm" class="grid small">
+          <input id="budgetId" type="hidden">
+          <label>Category
+            <select id="budgetCategory" required>
+              <option value="3">Food</option>
+              <option value="4">Rent</option>
+              <option value="5">Travel</option>
+              <option value="6">Shopping</option>
+              <option value="7">Bills</option>
+              <option value="8">Education</option>
+            </select>
+          </label>
+          <label>Amount
+            <input id="budgetAmount" type="number" min="0" step="0.01" required>
+          </label>
+          <label>Month
+            <input id="budgetMonth" type="number" min="1" max="12" required>
+          </label>
+          <label>Year
+            <input id="budgetYear" type="number" min="2000" required>
+          </label>
+          <button type="submit">Save</button>
+        </form>
+        <ul id="budgets" class="list"></ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
