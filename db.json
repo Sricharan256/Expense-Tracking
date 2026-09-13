@@ -1,8 +1,8 @@
 {
   "nextIds": {
-    "categories": 9,
-    "transactions": 4,
-    "budgets": 2
+    "categories": 11,
+    "transactions": 27,
+    "budgets": 5
   },
   "categories": [
     {
@@ -37,12 +37,22 @@
     },
     {
       "id": 7,
-      "name": "Bills",
+      "name": "bbbBills",
       "type": "expense"
     },
     {
       "id": 8,
       "name": "Education",
+      "type": "expense"
+    },
+    {
+      "id": 9,
+      "name": "df",
+      "type": "income"
+    },
+    {
+      "id": 10,
+      "name": "SSM",
       "type": "expense"
     }
   ],
@@ -73,6 +83,213 @@
       "description": "",
       "date": "2026-07-07",
       "createdAt": "2026-07-07T11:22:16.887Z"
+    },
+    {
+      "id": 4,
+      "categoryId": 3,
+      "amount": 1000,
+      "type": "expense",
+      "description": "Lunch",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:38:00.512Z"
+    },
+    {
+      "id": 5,
+      "categoryId": 7,
+      "amount": 804.53,
+      "type": "expense",
+      "description": "food",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:40:44.675Z"
+    },
+    {
+      "id": 6,
+      "categoryId": 7,
+      "amount": 12123000,
+      "type": "expense",
+      "description": "na istam",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:41:18.874Z"
+    },
+    {
+      "id": 7,
+      "categoryId": 7,
+      "amount": 12123000,
+      "type": "expense",
+      "description": "nv",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:41:53.590Z"
+    },
+    {
+      "id": 8,
+      "categoryId": 2,
+      "amount": 12126005,
+      "type": "income",
+      "description": "income",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:44:33.853Z"
+    },
+    {
+      "id": 9,
+      "categoryId": 7,
+      "amount": 40,
+      "type": "expense",
+      "description": "rent",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:47:21.337Z"
+    },
+    {
+      "id": 10,
+      "categoryId": 2,
+      "amount": 40,
+      "type": "income",
+      "description": "h",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:48:44.475Z"
+    },
+    {
+      "id": 11,
+      "categoryId": 2,
+      "amount": 10,
+      "type": "income",
+      "description": "m",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:49:30.649Z"
+    },
+    {
+      "id": 12,
+      "categoryId": 7,
+      "amount": 13000,
+      "type": "expense",
+      "description": "r",
+      "date": "2026-09-11",
+      "createdAt": "2026-09-11T09:54:32.003Z"
+    },
+    {
+      "id": 13,
+      "categoryId": 8,
+      "amount": 1000,
+      "type": "expense",
+      "description": "krj",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:35:21.836Z"
+    },
+    {
+      "id": 14,
+      "categoryId": 7,
+      "amount": 4905,
+      "type": "expense",
+      "description": "kk",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:35:33.056Z"
+    },
+    {
+      "id": 15,
+      "categoryId": 2,
+      "amount": 200000,
+      "type": "income",
+      "description": "",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:46:46.143Z"
+    },
+    {
+      "id": 16,
+      "categoryId": 8,
+      "amount": 50000,
+      "type": "expense",
+      "description": "krek",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:47:12.267Z"
+    },
+    {
+      "id": 17,
+      "categoryId": 8,
+      "amount": 50000,
+      "type": "expense",
+      "description": "rbm",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:47:49.301Z"
+    },
+    {
+      "id": 18,
+      "categoryId": 6,
+      "amount": 10000,
+      "type": "expense",
+      "description": "na istam",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:50:35.150Z"
+    },
+    {
+      "id": 19,
+      "categoryId": 6,
+      "amount": 10000,
+      "type": "expense",
+      "description": "n",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:50:52.715Z"
+    },
+    {
+      "id": 20,
+      "categoryId": 6,
+      "amount": 10000,
+      "type": "expense",
+      "description": "mmt",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:53:31.259Z"
+    },
+    {
+      "id": 21,
+      "categoryId": 7,
+      "amount": 10000,
+      "type": "expense",
+      "description": "f",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T18:56:50.812Z"
+    },
+    {
+      "id": 22,
+      "categoryId": 7,
+      "amount": 100,
+      "type": "expense",
+      "description": "Lunch",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T19:02:24.179Z"
+    },
+    {
+      "id": 23,
+      "categoryId": 9,
+      "amount": 100000,
+      "type": "income",
+      "description": "Lunch",
+      "date": "2026-09-14",
+      "createdAt": "2026-09-13T19:03:18.926Z"
+    },
+    {
+      "id": 24,
+      "categoryId": 3,
+      "amount": 100000,
+      "type": "expense",
+      "description": "income",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T19:13:39.261Z"
+    },
+    {
+      "id": 25,
+      "categoryId": 3,
+      "amount": 1000000000,
+      "type": "expense",
+      "description": "",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T19:13:57.891Z"
+    },
+    {
+      "id": 26,
+      "categoryId": 7,
+      "amount": 100000,
+      "type": "expense",
+      "description": "",
+      "date": "2026-09-13",
+      "createdAt": "2026-09-13T19:14:17.175Z"
     }
   ],
   "budgets": [
@@ -81,6 +298,27 @@
       "categoryId": 7,
       "amount": 12200,
       "month": 7,
+      "year": 2026
+    },
+    {
+      "id": 2,
+      "categoryId": 8,
+      "amount": 20000,
+      "month": 9,
+      "year": 2026
+    },
+    {
+      "id": 3,
+      "categoryId": 7,
+      "amount": 866,
+      "month": 9,
+      "year": 2026
+    },
+    {
+      "id": 4,
+      "categoryId": 6,
+      "amount": 100,
+      "month": 9,
       "year": 2026
     }
   ]

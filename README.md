@@ -1,84 +1,119 @@
-# Expense Tracker Web Application
+# Expense Tracker
 
-A complete full-stack CRUD project for recording income, expenses, categories, and monthly budgets with a dashboard and visual analytics.
-
-## Objective
-
-Build an expense tracking application that helps users record income and expenses, organize transactions by category, set monthly budgets, and understand spending patterns through summaries and charts.
-
-## Tech Stack
-
-- Frontend: HTML, CSS, JavaScript
-- Backend: Node.js HTTP server
-- Database: JSON file storage (`db.json`)
-- Dependencies: none
+A full-stack personal Expense Tracker application for managing income, expenses, categories, and monthly budgets.
 
 ## Features
 
-- Create, read, update, and delete transactions
-- Create, read, update, and delete categories
-- Create, read, update, and delete budgets
-- Dashboard cards for income, expense, and balance
-- Expense by category chart
-- Monthly trend chart
-- Transaction filters
+- Add, edit, and delete income and expense transactions
+- Create, edit, and delete categories
+- Create, edit, and delete monthly budgets
+- Dashboard with total income, expenses, balance, and savings rate
+- Search transactions by category, description, or type
+- Filter by type, month, year, and date range
+- Expense-by-category bar chart
+- Expense distribution pie chart
+- Monthly expense trend
+- Budget progress bars
+- Immediate budget-exceeded popup
+- Dark mode
+- Recurring monthly expense support
 - CSV export
-- Server-side validation for clean data
+- Print / Save-as-PDF report
+- Responsive desktop/tablet/mobile UI
+- Clean amount inputs without number spinner arrows
 
-## Database Design
+## Tech Stack
 
-`db.json` stores:
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express.js
+- REST API
+- JSON data storage in the current version
+- LocalStorage for UI preferences and recurring templates
 
-- `categories`: category id, name, and type (`income` or `expense`)
-- `transactions`: transaction id, category id, amount, type, description, date, and created date
-- `budgets`: budget id, category id, amount, month, and year
-- `nextIds`: auto-increment counters for each collection
+## Project Structure
 
-## Run the Project
+```text
+expense-tracker/
+├── index.html
+├── style.css
+├── app.js
+├── server.js
+├── db.json
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## Run Locally
 
 ```bash
-cd expense_tracker_node_app
+npm install
 node server.js
 ```
 
-Open:
+Then open:
 
 ```text
 http://127.0.0.1:3000
 ```
 
-If port `3000` is busy:
+Use the port printed by your server if it is different.
 
-```bash
-$env:PORT=3001
-node server.js
-```
-
-## API Routes
-
-- `GET /api/categories`
-- `POST /api/categories`
-- `PUT /api/categories/:id`
-- `DELETE /api/categories/:id`
-- `GET /api/transactions`
-- `POST /api/transactions`
-- `PUT /api/transactions/:id`
-- `DELETE /api/transactions/:id`
-- `GET /api/budgets`
-- `POST /api/budgets`
-- `PUT /api/budgets/:id`
-- `DELETE /api/budgets/:id`
-- `GET /api/summary`
-- `GET /api/export`
-
-## Project Folder
+## API Endpoints
 
 ```text
-expense_tracker_node_app/
-  server.js
-  db.json
-  public/
-    index.html
-    style.css
-    app.js
+GET    /api/categories
+POST   /api/categories
+PUT    /api/categories/:id
+DELETE /api/categories/:id
+
+GET    /api/transactions
+POST   /api/transactions
+PUT    /api/transactions/:id
+DELETE /api/transactions/:id
+
+GET    /api/budgets
+POST   /api/budgets
+PUT    /api/budgets/:id
+DELETE /api/budgets/:id
+
+GET    /api/summary
+GET    /api/export
 ```
+
+## Budget Alert
+
+The application checks the selected category, month, and year before saving an expense.
+
+Example:
+
+```text
+Budget:           Rs 5,000
+Existing Expense: Rs 4,000
+New Expense:      Rs 1,500
+Total:            Rs 5,500
+Exceeded:         Rs 500
+```
+
+An immediate popup is shown when the budget is exceeded.
+
+## Important Note
+
+The updated frontend uses the existing REST endpoints listed above. MongoDB/JWT authentication from the separate MERN backend setup is not wired into these frontend files yet.
+
+## Future Improvements
+
+- User registration and login
+- JWT authentication
+- MongoDB persistence
+- Per-user expense isolation
+- Deployment
+- Email budget notifications
+- Automated tests
+
+## Author
+
+Sricharan Medaboina

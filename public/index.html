@@ -6,108 +6,210 @@
   <title>Expense Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <header class="topbar">
     <div>
       <p>Expense Tracker CRUD</p>
       <h1>Track income, expenses, and budgets</h1>
     </div>
-    <a id="exportCsv" href="/api/export">Export CSV</a>
+
+    <div class="header-actions">
+      <button id="darkModeBtn" type="button">🌙 Dark Mode</button>
+      <button id="printPdf" type="button">📄 PDF Report</button>
+      <a id="exportCsv" href="/api/export">Export CSV</a>
+    </div>
   </header>
 
   <main>
+
+    <!-- DASHBOARD -->
     <section class="stats">
       <article>
         <span>Income</span>
         <strong id="income">Rs 0</strong>
       </article>
+
       <article>
         <span>Expense</span>
         <strong id="expense">Rs 0</strong>
       </article>
+
       <article>
         <span>Balance</span>
         <strong id="balance">Rs 0</strong>
       </article>
+
+      <article>
+        <span>Savings Rate</span>
+        <strong id="savingsRate">0%</strong>
+      </article>
     </section>
 
+
+    <!-- TRANSACTION -->
     <section class="panel">
       <div class="panel-title">
         <h2>Transaction</h2>
         <button id="newTransaction" type="button">New</button>
       </div>
+
       <form id="transactionForm" class="grid">
+
         <input id="transactionId" type="hidden">
-        <label>Type
+
+        <label>
+          Type
           <select id="transactionType">
             <option value="expense">Expense</option>
             <option value="income">Income</option>
           </select>
         </label>
-        <label>Category
-          <select id="transactionCategory" required>
-            <option value="3">Food</option>
-            <option value="4">Rent</option>
-            <option value="5">Travel</option>
-            <option value="6">Shopping</option>
-            <option value="7">Bills</option>
-            <option value="8">Education</option>
-          </select>
+
+        <label>
+          Category
+          <select id="transactionCategory" required></select>
         </label>
-        <label>Amount
-          <input id="transactionAmount" type="number" min="1" step="0.01" required>
+
+        <label>
+          Amount
+          <input id="transactionAmount"
+                 type="number"
+                 min="1"
+                 step="0.01"
+                 required>
         </label>
-        <label>Date
-          <input id="transactionDate" type="date" required>
+
+        <label>
+          Date
+          <input id="transactionDate"
+                 type="date"
+                 required>
         </label>
-        <label class="wide">Description
-          <input id="transactionDescription" type="text" placeholder="Lunch, rent, salary...">
+
+        <label class="wide">
+          Description
+          <input id="transactionDescription"
+                 type="text"
+                 placeholder="Lunch, rent, salary...">
         </label>
+
+        <label class="checkbox-label">
+          <input id="recurringTransaction" type="checkbox">
+          Repeat monthly
+        </label>
+
         <button type="submit">Save</button>
+
       </form>
     </section>
 
+
+    <!-- FILTERS -->
     <section class="panel">
       <div class="panel-title">
-        <h2>Filters</h2>
+        <h2>Search & Filters</h2>
         <button id="clearFilters" type="button">Clear</button>
       </div>
-      <div class="grid small">
-        <label>Type
+
+      <div class="grid filter-grid">
+
+        <label>
+          Search
+          <input id="searchTransaction"
+                 type="search"
+                 placeholder="Search category or description...">
+        </label>
+
+        <label>
+          Type
           <select id="filterType">
             <option value="">All</option>
             <option value="expense">Expense</option>
             <option value="income">Income</option>
           </select>
         </label>
-        <label>From
+
+        <label>
+          Month
+          <select id="filterMonth">
+            <option value="">All Months</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </label>
+
+        <label>
+          Year
+          <input id="filterYear"
+                 type="number"
+                 min="2000"
+                 placeholder="2026">
+        </label>
+
+        <label>
+          From
           <input id="filterFrom" type="date">
         </label>
-        <label>To
+
+        <label>
+          To
           <input id="filterTo" type="date">
         </label>
+
         <button id="applyFilters" type="button">Apply</button>
+
       </div>
     </section>
 
+
+    <!-- CHARTS -->
     <section class="columns">
+
       <article class="panel">
         <h2>Expense by Category</h2>
         <div id="categoryChart" class="bars"></div>
       </article>
+
       <article class="panel">
+        <h2>Expense Distribution</h2>
+
+        <div id="pieChart" class="pie-chart"></div>
+
+        <div id="pieLegend" class="pie-legend"></div>
+      </article>
+
+      <article class="panel full-width">
         <h2>Monthly Trend</h2>
         <div id="monthlyChart" class="bars"></div>
       </article>
+
     </section>
 
+
+    <!-- TRANSACTIONS -->
     <section class="panel">
+
       <div class="panel-title">
         <h2>Transactions</h2>
         <span id="transactionCount">0 records</span>
       </div>
+
       <div class="table-wrap">
+
         <table>
+
           <thead>
             <tr>
               <th>Date</th>
@@ -118,62 +220,106 @@
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody id="transactions"></tbody>
+
         </table>
+
       </div>
+
     </section>
 
+
+    <!-- CATEGORIES + BUDGETS -->
     <section class="columns">
+
+      <!-- CATEGORIES -->
       <article class="panel">
+
         <div class="panel-title">
           <h2>Categories</h2>
           <button id="newCategory" type="button">New</button>
         </div>
+
         <form id="categoryForm" class="inline">
+
           <input id="categoryId" type="hidden">
-          <input id="categoryName" type="text" placeholder="Category name" required>
+
+          <input id="categoryName"
+                 type="text"
+                 placeholder="Category name"
+                 required>
+
           <select id="categoryType">
             <option value="expense">Expense</option>
             <option value="income">Income</option>
           </select>
+
           <button type="submit">Save</button>
+
         </form>
+
         <ul id="categories" class="list"></ul>
+
       </article>
 
+
+      <!-- BUDGETS -->
       <article class="panel">
+
         <div class="panel-title">
           <h2>Budgets</h2>
           <button id="newBudget" type="button">New</button>
         </div>
+
         <form id="budgetForm" class="grid small">
+
           <input id="budgetId" type="hidden">
-          <label>Category
-            <select id="budgetCategory" required>
-              <option value="3">Food</option>
-              <option value="4">Rent</option>
-              <option value="5">Travel</option>
-              <option value="6">Shopping</option>
-              <option value="7">Bills</option>
-              <option value="8">Education</option>
-            </select>
+
+          <label>
+            Category
+            <select id="budgetCategory" required></select>
           </label>
-          <label>Amount
-            <input id="budgetAmount" type="number" min="0" step="0.01" required>
+
+          <label>
+            Amount
+            <input id="budgetAmount"
+                   type="number"
+                   min="0"
+                   step="0.01"
+                   required>
           </label>
-          <label>Month
-            <input id="budgetMonth" type="number" min="1" max="12" required>
+
+          <label>
+            Month
+            <input id="budgetMonth"
+                   type="number"
+                   min="1"
+                   max="12"
+                   required>
           </label>
-          <label>Year
-            <input id="budgetYear" type="number" min="2000" required>
+
+          <label>
+            Year
+            <input id="budgetYear"
+                   type="number"
+                   min="2000"
+                   required>
           </label>
+
           <button type="submit">Save</button>
+
         </form>
+
         <ul id="budgets" class="list"></ul>
+
       </article>
+
     </section>
+
   </main>
 
   <script src="app.js"></script>
+
 </body>
 </html>
